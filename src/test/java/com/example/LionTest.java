@@ -25,7 +25,7 @@ public class LionTest {
     }
 
     @Test
-    public void getFood() throws Exception {
+    public void getPredatorFood() throws Exception {
         List<String> food = List.of("картошечка", "лук", "грибы");
         Mockito.when(feline.getFood(Mockito.anyString())).thenReturn(food);
         Lion lion = new Lion("Самец", feline);
