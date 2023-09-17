@@ -1,16 +1,28 @@
 package com.example;
 
+import org.junit.Assert;
 import org.junit.Test;
-import static org.junit.Assert.assertEquals;
+import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.junit.MockitoJUnitRunner;
 
+@RunWith(MockitoJUnitRunner.class)
 public class CatTest {
 
+    @Mock
+    Feline feline;
+
     @Test
-    public void testGetSound() {
-        Cat cat = new Cat(new Feline());
-        assertEquals("Мяу", cat.getSound());
+    public void getSound() {
+        Cat cat = new Cat(feline);
+        Assert.assertEquals("Мяу", cat.getSound());
     }
 
-    public void testGetFood() {
+    @Test
+    public void getFood() throws Exception {
+        Cat cat = new Cat(feline);
+        cat.getFood();
+        Mockito.verify(feline, Mockito.times(1)).eatMeat();
     }
 }
