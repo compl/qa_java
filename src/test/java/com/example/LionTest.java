@@ -15,13 +15,14 @@ import static org.junit.Assert.*;
 public class LionTest {
 
     @Mock
-    Feline feline;
+    private Feline feline;
 
     @Test
     public void getKittens() throws Exception {
-        Mockito.when(feline.getKittens()).thenReturn(3);
+        int kittensCount = 3;
+        Mockito.when(feline.getKittens()).thenReturn(kittensCount);
         Lion lion = new Lion("Самец", feline);
-        Assert.assertEquals(3, lion.getKittens());
+        Assert.assertEquals(kittensCount, lion.getKittens());
     }
 
     @Test
